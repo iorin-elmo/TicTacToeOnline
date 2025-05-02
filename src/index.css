@@ -1,0 +1,136 @@
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  /* Dark Mode Defaults */
+  color-scheme: dark;
+  color: rgba(255, 255, 255, 0.87); /* Light text */
+  background-color: #242424; /* Dark background */
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  place-content: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+  color: #e0e0e0; /* Slightly lighter color for headings */
+}
+
+button {
+  border-radius: 0;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  /* Dark Mode Button Style */
+  background-color: #1a1a1a; /* Darker button background */
+  color: rgba(255, 255, 255, 0.87); /* Light button text */
+  cursor: pointer;
+  transition: border-color 0.25s, background-color 0.25s;
+}
+button:hover {
+  /* border-color: #646cff; */ /* Use outline instead */
+  background-color: #3a3a3a; /* Slightly lighter on hover */
+  outline: 2px solid #646cff; /* Add outline for hover effect */
+  outline-offset: -1px; /* Optional: Adjust outline position */
+}
+button:focus,
+button:focus-visible {
+  /* Keep the default focus outline or adjust if needed */
+  outline: 4px auto -webkit-focus-ring-color;
+}
+button:disabled {
+    background-color: #333;
+    color: #777;
+    cursor: not-allowed;
+    border-color: #444;
+}
+
+/* Tic Tac Toe Board Styles (Dark Mode) */
+.board-row {
+    clear: both;
+    content: "";
+    display: table;
+}
+
+.square {
+  /* Remove background and default button border */
+  background: none;
+  border: none; /* Remove default border */
+  float: left;
+  font-size: 60px; /* Slightly larger font */
+  font-weight: bold;
+  font-family: 'Arial', sans-serif; /* Add specific font family */
+  line-height: 80px;
+  height: 80px;
+  padding: 0;
+  text-align: center;
+  width: 80px;
+  color: #eee; /* Light text for X/O */
+  cursor: pointer;
+  transition: background-color 0.2s;
+
+  /* Add grid lines using borders */
+  border-bottom: 2px solid #666; /* Horizontal line */
+  border-right: 2px solid #666; /* Vertical line */
+}
+
+/* Remove borders from the outer edges */
+.board-row:first-child .square {
+  border-top: none;
+}
+.board-row:last-child .square {
+  border-bottom: none;
+}
+.square:nth-child(3n) {
+  border-right: none; /* Remove right border for last column */
+}
+.square:nth-child(3n+1) {
+    /* No specific style needed for first column border removal, handled by container */
+}
+
+.square:hover {
+    background: rgba(255, 255, 255, 0.1); /* Subtle hover effect */
+}
+
+.square:focus {
+  outline: none;
+}
+
+/* Game component layout */
+.game {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.game-board {
+  margin-bottom: 20px;
+}
+
+.game-info {
+  text-align: center;
+}
+
+.game-info button {
+    margin: 5px;
+}
+
+/* Remove light theme overrides */
+/* @media (prefers-color-scheme: light) { ... } */
+/* Remove dark theme media query if dark is default */
+/* @media (prefers-color-scheme: dark) { ... } */
